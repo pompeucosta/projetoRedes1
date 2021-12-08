@@ -1,0 +1,36 @@
+
+
+conf t
+int f0/0
+ip add 220.3.4.6 255.255.255.252
+no shut
+
+int f0/1
+ip add 10.125.0.1 255.255.255.0
+no shut
+end
+
+conf t
+ip nat pool MYNATPOOL 200.132.135.224 200.132.135.234 netmask 255.255.255.240
+access-list 1 permit 10.125.0.0 0.0.255.255
+ip nat inside source list 1 pool MYNATPOOL overload
+end
+
+conf t
+
+int f0/0
+ip nat outside
+
+int f0/1
+ip nat inside
+
+end
+
+conf t
+ip route 10.125.1.0 255.255.255.0 10.125.0.2
+ip route 10.125.2.0 255.255.255.0 10.125.0.2
+ip route 203.0.0.0 255.255.255.0 220.3.4.5
+end
+
+wr
+
