@@ -7,10 +7,12 @@ no shut
 
 int f0/1
 ip add 10.125.1.1 255.255.255.0
+ip add 200.132.135.129 255.255.255.192 secondary
 no shut
 
 int f1/0
 ip add 10.125.2.1 255.255.255.0
+ip add 200.132.135.193 255.255.255.224 secondary
 no shut
 
 end
@@ -42,8 +44,34 @@ default-router 10.125.2.1
 end
 
 conf t
-ip route 203.0.0.0 255.255.255.0 10.125.0.1
-ip route 220.3.4.4 255.255.255.252 10.125.0.1
+ip route 0.0.0.0 0.0.0.0 10.125.0.1
+end
+
+conf t
+ipv6 unicast-routing
+int f0/0
+ipv6 enable
+no shutdown
+
+int f0/1
+ipv6 enable
+no shutdown
+
+int f1/0
+ipv6 enable
+no shutdown
+end
+
+conf t
+int f0/0
+ipv6 add 2001:0:0:1::2/64
+
+int f0/1
+ipv6 add 2001:0:0:2::1/64
+
+int f1/0
+ipv6 add 2001:0:0:3::1/64
+
 end
 
 wr

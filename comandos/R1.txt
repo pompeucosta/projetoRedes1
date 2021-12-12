@@ -29,7 +29,31 @@ end
 conf t
 ip route 10.125.1.0 255.255.255.0 10.125.0.2
 ip route 10.125.2.0 255.255.255.0 10.125.0.2
-ip route 203.0.0.0 255.255.255.0 220.3.4.5
+ip route 0.0.0.0 0.0.0.0 220.3.4.5
+ip route 200.132.135.128 255.255.255.192 10.125.0.2
+ip route 200.132.135.192 255.255.255.224 10.125.0.2
+end
+
+conf t
+ipv6 unicast-routing
+
+int f0/0
+ipv6 enable
+no shutdown
+
+int f0/1
+ipv6 enable
+no shutdown
+
+end
+
+conf t
+int f0/0
+ipv6 add 2200:3:4:4::6/126
+
+int f0/1
+ipv6 add 2001:0:0:1::1/64
+
 end
 
 wr
