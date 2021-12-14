@@ -64,19 +64,22 @@
     \hline
     Rede & IPv4 Público & IPv4 Privado & IPv6 \\
     \hline
-    R1 -> R0 & -------- & 10.125.0.0/24 & ???? \\
+    R1 -> R0 & -------- & 10.125.0.0/24 & 2001:0:0:1::/64 \\
     \hline
-    DESIGN & 200.132.135.128/26 & 10.125.1.0/24 & ???? \\
-    & & GW- 10.125.1.1 & \\
+    DESIGN & 200.132.135.128/26 & 10.125.1.0/24 & 2001:0:0:2::/64 \\
+    & & GW- 10.125.1.1 & GW- 2001:0:0:2::1/64\\
     \hline
-    MARKETING & 200.132.135.192/27 & 10.125.2.0/24 & ???? \\
-    & & GW- 10.125.2.1 & \\
+    MARKETING & 200.132.135.192/27 & 10.125.2.0/24 & 2001:0:0:3::/64 \\
+    & & GW- 10.125.2.1 & GW- 2001:0:0:3::1/64 \\
     \hline
-    R1 -> ISP & 220.3.4.4/30 & -------- & ???? \\
+    R1 -> ISP & 220.3.4.4/30 & -------- & 2200:3:4:4::4/126\\
     \hline
-    ISP -> INTERNET & 203.0.0.0/24 & -------- & ????\\
+    ISP -> INTERNET & 203.0.0.0/24 & -------- & 2300:A:A:A::/64\\
     \hline
 \end{tabular}
+
+\paragraph{Estes IPs, em IPv6, derivados do global address 2001:00::/60, resultaram de uma divisão da máscara de 60 bits para /64 e estes 4 bits acrescentados foram utilizados como identificador da subrede}
+
 
 \begin{center}
 \begin{figure}
