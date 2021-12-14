@@ -51,15 +51,14 @@
 \pagenumbering{arabic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{center}
 \begin{figure}
     \centering
-    \includegraphics[scale=0.65]{network.png}
+    \includegraphics[scale=0.6]{network.png}
+    \caption{Rede no GNS3}
 \end{figure}
-\end{center}
 \begin{center}
     
-\end{center}
+\begin{table}
 \begin{tabular}{|c|c|c|c|}
     \hline
     Rede & IPv4 Público & IPv4 Privado & IPv6 \\
@@ -76,15 +75,21 @@
     \hline
     ISP -> INTERNET & 203.0.0.0/24 & -------- & 2300:A:A:A::/64\\
     \hline
+    
 \end{tabular}
+\caption{Tabela das redes e respetivos IPs}
+\end{table}
+\end{center}
 
-\paragraph{Estes IPs, em IPv6, derivados do global address 2001:00::/60, resultaram de uma divisão da máscara de 60 bits para /64 e estes 4 bits acrescentados foram utilizados como identificador da subrede}
+\paragraph{Estes IPs, em IPv6, derivados do global address 2001:00::/60, resultaram de uma divisão da máscara de 60 bits para /64. Estes 4 bits acrescentados foram utilizados como identificador da subrede.}
+
+\paragraph{Tal como nos IPsv6, os IPsv4 também foram alterados de /16 para /24, sendo este byte extra utilizado para definir a subrede. Tal é possível ver na Tabela 1.}
 
 
-\begin{center}
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{IPsPublicosDiagrama.png}
+    \caption{Diagrama dos IPs Públicos}
+    \label{fig:diagrama}
 \end{figure}    
-\end{center}
 \end{document}
